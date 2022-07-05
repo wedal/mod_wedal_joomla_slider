@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0" client="site" method="upgrade">
+	<name>Wedal Joomla Slider</name>
+	<author>Wedal</author>
+	<creationDate>2020</creationDate>
+	<copyright>Copyright (C) 2020 Wedal.ru. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+	<authorEmail>wedal@wedal.ru</authorEmail>
+	<authorUrl>wedal.ru</authorUrl>
+	<version>2.0</version>
+	<description>MOD_WEDAL_JOOMLA_SLIDER_XML_DESCRIPTION</description>
+	<files>
+		<filename module="MOD_WEDAL_JOOMLA_SLIDER">mod_wedal_joomla_slider.php</filename>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+		<filename>subform.xml</filename>
+		<filename>subformtabs.xml</filename>
+	</files>
+
+	<media destination="mod_wedal_joomla_slider" folder="media">
+        <folder>js</folder>
+	</media>
+
+	<languages>
+		<language tag="en-GB">languages/en-GB.mod_wedal_joomla_slider.ini</language>
+		<language tag="en-GB">languages/en-GB.mod_wedal_joomla_slider.sys.ini</language>
+		<language tag="ru-RU">languages/ru-RU.mod_wedal_joomla_slider.ini</language>
+		<language tag="ru-RU">languages/ru-RU.mod_wedal_joomla_slider.sys.ini</language>
+	</languages>
+
+	<config>
+	<fields name="params">
+		<fieldset name="basic">
+			<field name="enable" type="radio" default="1" label="Включить режим слайдера" description="Позволяет отключить инициализацию слайдера. Может быть полезно, когда требуется сделать простой список слайдов" class="btn-group btn-group-yesno">
+			  <option value="1">JYES</option>
+			  <option value="0">JNO</option>
+			</field>
+
+			<field name="readmore" type="radio" default="0" showon="enable:0" label="Скрывать часть слайдов под кнопкой [Cмотреть все]" description="Позволяет скрыть часть слайдов под кнопкой [Cмотреть все]. Работает только когда режим слайдера отключен" class="btn-group btn-group-yesno">
+			  <option value="1">JYES</option>
+			  <option value="0">JNO</option>
+			</field>
+
+			<field name="readmore_slides" type="integer" default="3" showon="enable:0[AND]readmore:1" label="Количество первоначально видимых слайдов" description="Сколько видимых слайдов до кнопки [Cмотреть все]." first="1" last="30" step="1" />
+
+			<field name="number_of_slides" type="integer" default="3" showon="enable:1" label="Количество слайдов на одном экране" description="Сколько слайдов должно выводиться на одном экране" first="1" last="30" step="1" />
+
+			<field name="slides_to_scroll" type="integer" default="3" showon="enable:1" label="Количество слайдов на одну прокрутку" description="Сколько слайдов прокрутится при сдвиге слайдера" first="1" last="30" step="1" />
+
+			<field name="autoplay" type="radio" default="1" showon="enable:1" label="Автозапуск" description="" class="btn-group btn-group-yesno">
+			  <option value="1">JYES</option>
+			  <option value="0">JNO</option>
+			</field>
+
+			<field name="autoplay_interval" showon="autoplay:1[AND]enable:1" type="text" default="300" label="Интервал смены слайдов" description="Интервал, после которого сдвигаются слайды. Задается в миллисекундах. Для интервала в 1 секунду должно быть установлено 1000" filter="integer" />
+
+			<field name="show_handles" type="radio" default="1" showon="enable:1" label="Показывать стрелки переключения слайдов" description="" class="btn-group btn-group-yesno">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+
+			<field name="show_dots" type="radio" default="1" showon="enable:1" label="Показывать точки переключения слайдов" description="" class="btn-group btn-group-yesno">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+
+			<field name="slick_params" type="textarea" default="" showon="enable:1" label="Дополнительные парамеры для инициализации слайдера" description="Здесь вы можете задать дополнительные парамерты инициализации слайдера, которые не вынесены в настройки. Подробнее о них можно прочитать в документации по Slick Slider. Параметры задаются в формате: ПАРАМЕТР:ЗНАЧЕНИЕ. Разделитель - запятая." rows="5" cols="5" filter="safehtml"/>
+
+			<field name="show_text" type="radio" default="none" label="Показывать текст до или после слайдера" description="" class="btn-group btn-group-yesno">
+				<option value="none">Нет</option>
+				<option value="before">Перед</option>
+				<option value="after">После</option>
+				<option value="both">Перед и после</option>
+			</field>
+
+			<field name="before_text" showon="show_text:before[OR]show_text:both" type="editor" label="Текст перед слайдером" description="Здесь может быть любой html-код. Он будет выведен ПЕРЕД слайдером. Удобно использовать для оформления сложных блоков." filter="safehtml"/>
+
+			<field name="after_text" showon="show_text:after[OR]show_text:both" type="editor" label="Текст после слайдера" description="Здесь может быть любой html-код. Он будет выведен ПОСЛЕ слайдером. Удобно использовать для оформления сложных блоков." filter="safehtml"/>
+
+			<field type="spacer" name="myspacer" hr="true" />
+
+		</fieldset>
+
+		<fieldset name="source_data">
+
+			<field name="show_tabs" type="radio" default="0" label="Группировать слайды по вкладкам" description="При включении этой опции слайды буду группироваться по вкладкам на основе тегов Joomla, указанных для каждого слайда" class="btn-group btn-group-yesno">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+
+			<field name="list_templates" type="subform" showon="show_tabs:0"
+			    formsource="/modules/mod_wedal_joomla_slider/subform.xml" multiple="true"
+			    label="MOD_WEDAL_JOOMLA_SLIDER_REPEAT" description="MOD_WEDAL_JOOMLA_SLIDER_REPEAT_DESC" />
+
+			<field name="list_templates_tabs" type="subform" showon="show_tabs:1"
+				formsource="/modules/mod_wedal_joomla_slider/subformtabs.xml" multiple="true"
+				label="MOD_WEDAL_JOOMLA_SLIDER_REPEAT" description="MOD_WEDAL_JOOMLA_SLIDER_REPEAT_DESC" />
+		</fieldset>
+
+		<fieldset name="advanced">
+			<field
+				name="layout"
+				type="modulelayout"
+				label="JFIELD_ALT_LAYOUT_LABEL"
+				description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+			/>
+
+			<field
+				name="moduleclass_sfx"
+				type="textarea"
+				label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+				description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+				rows="3"
+			/>
+
+			<field name="data-params" type="text" default="" label="Дополнительные атрибуты для модуля" description="Здесь вы можете задать дополнительные атрибуты, которые будут применены к родительскому блоку модуля" filter="raw"/>
+
+			<field
+				name="cache"
+				type="list"
+				label="COM_MODULES_FIELD_CACHING_LABEL"
+				description="COM_MODULES_FIELD_CACHING_DESC"
+				default="1"
+				>
+				<option value="1">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+			</field>
+
+			<field
+				name="cache_time"
+				type="text"
+				label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+				description="COM_MODULES_FIELD_CACHE_TIME_DESC"
+				default="900"
+			/>
+
+			<field
+				name="cachemode"
+				type="hidden"
+				default="static"
+				>
+				<option value="static"></option>
+			</field>
+		</fieldset>
+
+	</fields>
+</config>
+
+</extension>
