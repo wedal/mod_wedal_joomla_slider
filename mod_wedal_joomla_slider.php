@@ -8,8 +8,18 @@ JLoader::register('ModWedalJoomlaSliderHelper', __DIR__ . '/helper.php');
 $jinput = Factory::getApplication()->input;
 
 $wa = Factory::getApplication()->getDocument()->getWebAssetManager();
-$wa->useScript('jquery');
-$wa->useScript('slick');
+
+if($params->get('enable_jquery')) {
+    $wa->useScript('jquery');
+}
+
+if($params->get('enable_css')) {
+    HTMLHelper::_('stylesheet','mod_wedal_joomla_slider/mod_wedal_joomla_slider.css',	['relative' => true], ['defer ' => 'defer']);
+}
+
+if ($params->get('enable')) {
+    HTMLHelper::_('script','mod_wedal_joomla_slider/slick.min.js',	['relative' => true], ['defer ' => 'defer']);
+}
 
 HTMLHelper::_('script','mod_wedal_joomla_slider/mod_wedal_joomla_slider.js',	['relative' => true], ['defer ' => 'defer']);
 

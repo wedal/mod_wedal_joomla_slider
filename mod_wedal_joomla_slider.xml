@@ -21,7 +21,7 @@
         <folder>js</folder>
 	</media>
 
-	<languages>
+	<languages folder="language">
 		<language tag="en-GB">languages/en-GB.mod_wedal_joomla_slider.ini</language>
 		<language tag="en-GB">languages/en-GB.mod_wedal_joomla_slider.sys.ini</language>
 		<language tag="ru-RU">languages/ru-RU.mod_wedal_joomla_slider.ini</language>
@@ -79,6 +79,18 @@
 
 			<field type="spacer" name="myspacer" hr="true" />
 
+		</fieldset>
+
+		<fieldset name="media_params" label="Настройка скриптов и стилей">
+			<field name="enable_jquery" type="radio" default="1" label="Подключать jQuery" description="Для работы слайдера jQuery должен быть подключен на странице. Если вы подключаете его через шаблон или другое расширение поставьте здесь НЕТ" class="btn-group btn-group-yesno">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+
+			<field name="enable_css" type="radio" default="1" label="Подключать файл стилей слайдера" description="Этот файл требуется для оформления слайдера. Если вы оформляете слайдер сами то можете отключить этот файл. Другой вариант - переопределить этот файл в шаблон и изменить по своему вкусу." class="btn-group btn-group-yesno">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
 		</fieldset>
 
 		<fieldset name="source_data">
