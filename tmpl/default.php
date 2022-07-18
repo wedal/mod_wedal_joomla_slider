@@ -1,39 +1,34 @@
-<?php
-defined('_JEXEC') or die('Restricted access');
+<?php defined('_JEXEC') or die('Restricted access'); ?>
 
-?>
+<div id="WedalJoomlaSlider<?php echo $module->id ?>" class="wedaljoomlaslider <?php echo $class_options ?> slider-wr  <?php echo $moduleclass_sfx ?>" <?php echo $params->get('data-params'); ?>>
 
-<div id="WedalJoomlaSlider<?php echo $moduleId ?>" class="wedaljoomlaslider <?php echo $class_options ?> slider-wr  <?php echo $moduleclass_sfx ?>" <?php echo $params->get('data-params'); ?>>
-
-	<?php if ($slider_params->show_text == 'before' || $slider_params->show_text == 'both') { ?>
+	<?php if ($params->get('show_text') == 'before' || $params->get('show_text') == 'both') { ?>
 		<div class="slider-before-text">
-			<?php echo $slider_params->before_text; ?>
+			<?php echo $params->get('before_text') ?>
 		</div>
 	<?php } ?>
 
 	<div class="slider" <?php echo ($readmore) ? 'data-readmore='.$readmore : '' ?>>
 		<?php foreach ($slides as $key => $slide) { ?>
-			<div class="slide <?php echo ($readmore && $key > $readmore-1) ? 'hide' : '' ?>">
-				<?php switch ($slide->source_type) {
-					// Шаблоны каждого источника контента хранятся в отдельных подмакетах
-					case 'image':
-						require JModuleHelper::getLayoutPath('mod_wedal_joomla_slider', $params->get('layout', 'default') . '_image');
-						break;
 
-					case 'youtube':
-						require JModuleHelper::getLayoutPath('mod_wedal_joomla_slider', $params->get('layout', 'default') . '_youtube');
-						break;
+            <?php switch ($slide->source_type) {
+                // Шаблоны каждого источника контента хранятся в отдельных подмакетах
+                case 'image':
+                    require JModuleHelper::getLayoutPath('mod_wedal_joomla_slider', $params->get('layout', 'default') . '_image');
+                    break;
 
-					case 'editor':
-						require JModuleHelper::getLayoutPath('mod_wedal_joomla_slider', $params->get('layout', 'default') . '_editor');
-						break;
+                case 'youtube':
+                    require JModuleHelper::getLayoutPath('mod_wedal_joomla_slider', $params->get('layout', 'default') . '_youtube');
+                    break;
 
-					default:
-						echo 'Не выбран источник контента для слайда';
-						break;
-				} ?>
+                case 'editor':
+                    require JModuleHelper::getLayoutPath('mod_wedal_joomla_slider', $params->get('layout', 'default') . '_editor');
+                    break;
 
-			</div>
+                default:
+                    echo 'Не выбран источник контента для слайда';
+                    break;
+            } ?>
 		<?php } ?>
 	</div>
 
@@ -41,9 +36,9 @@ defined('_JEXEC') or die('Restricted access');
 		<div class="readmore-link" data-alttitle="Свернуть">Смотреть все</div>
 	<?php } ?>
 
-	<?php if ($slider_params->show_text == 'after' || $slider_params->show_text == 'both') { ?>
+	<?php if ($params->get('show_text') == 'after' || $params->get('show_text') == 'both') { ?>
 		<div class="slider-after-text">
-			<?php echo $slider_params->after_text; ?>
+			<?php echo $params->get('after_text') ?>
 		</div>
 	<?php } ?>
 
@@ -53,21 +48,26 @@ defined('_JEXEC') or die('Restricted access');
 if ($params->get('enable')) {
 	$js = "
 	jQuery(document).ready(function($) {
-		$('#WedalJoomlaSlider".$moduleId." .slider').slick({
-			lazyLoad: 'ondemand',
-			slidesToShow: ".$slider_params->number_of_slides.",
-			slidesToScroll: ".$slider_params->slides_to_scroll.",
-			autoplay: ".$slider_params->autoplay.",
-			autoplaySpeed: ".$slider_params->autoplay_interval.",
-			arrows: ".$slider_params->show_handles.",
-			dots: ".$slider_params->show_dots."
+		$('#WedalJoomlaSlider".$module->id." .slider').slick({
+			". ($params->get('lazy_load') ? 'lazyLoad: "'. $params->get('lazy_load') .'",' : '') ."
+			slidesToShow: ".$params->get('number_of_slides').",
+			slidesToScroll: ".$params->get('slides_to_scroll').",
+			autoplay: ".($params->get('autoplay') ? 'true' : 'false').",
+			autoplaySpeed: ".$params->get('autoplay_interval').",
+			arrows: ".($params->get('show_handles') ? 'true' : 'false').",
+			dots: ".($params->get('show_dots') ? 'true' : 'false').",
+			centerMode: ".($params->get('center_mode') ? 'true' : 'false').",
+			fade: ".($params->get('fade') ? 'true' : 'false').",
+			variableWidth: ".($params->get('variable_width') ? 'true' : 'false').",	
+			adaptiveHeight: ".($params->get('adaptive_height') ? 'true' : 'false')."
 			";
-			if ($slider_params->slick_params) {
-				$js .= " , " . $slider_params->slick_params;
+			if ($params->get('slick_params')) {
+				$js .= " , " . $params->get('slick_params');
 			}
 	$js .= "});
 	});";
 
 	$wa->addInlineScript($js);
 }
+
 ?>

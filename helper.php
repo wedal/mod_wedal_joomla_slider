@@ -48,10 +48,8 @@ class ModWedalJoomlaSliderHelper
 		return $slides;
 	}
 
-	//http://test.liteikapro.ru/index.php?option=com_ajax&module=wedal_joomla_slider&format=json&method=getSlidesByTag&id=220&itemid=67&tagid=6
 	public static function getSlidesByTagAjax()
 	{
-
 		$jinput = Factory::getApplication()->input;
 		$mod_id = $jinput->get('id', null, 'int');
 		$tag_id = $jinput->get('tagid', null, 'int');

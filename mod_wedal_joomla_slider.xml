@@ -81,8 +81,45 @@
 
 		</fieldset>
 
+		<fieldset name="slider_params" label="Дополнительные настройки слайдера">
+			<field name="lazy_load" showon="enable:1" type="radio" default="progressive" label="Отложенная загрузка изображений" description="Позводяет подружать слайды по мере того как подходит их очередь для показа. Полезно для слайдеров с большим количеством слайдов." class="btn-group btn-group-yesno">
+				<option value="0">JNO</option>
+				<option value="ondemand">По запросу</option>
+				<option value="progressive">Прогрессивный</option>
+			</field>
+
+			<field name="center_mode" showon="enable:1" type="radio" default="0" label="Центрировать активный слайд" description="Активный слайд будет центрироваться и увеличиваться" class="btn-group btn-group-yesno">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+
+			<field name="fade" showon="enable:1" type="radio" default="0" label="Переключать слайды затуханием(Fade)" description="При включении этой опции слайды переключаются не прокруткой а затуханием" class="btn-group btn-group-yesno">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+
+			<field name="variable_width" showon="enable:1" type="radio" default="0" label="Адаптивная ширина" description="Ширина слайдов подстраивается под ширину изображений. Позволяет показывать изображения разной ширины при отображении нескольких изображений на один слайд" class="btn-group btn-group-yesno">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+
+			<field name="adaptive_height" showon="enable:1" type="radio" default="0" label="Адаптивная высота" description="Изменяет высоту слайдера под высоту активного слайда" class="btn-group btn-group-yesno">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+
+
+
+
+		</fieldset>
+
 		<fieldset name="media_params" label="Настройка скриптов и стилей">
 			<field name="enable_jquery" type="radio" default="1" label="Подключать jQuery" description="Для работы слайдера jQuery должен быть подключен на странице. Если вы подключаете его через шаблон или другое расширение поставьте здесь НЕТ" class="btn-group btn-group-yesno">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+
+			<field name="enable_fancybox" type="radio" default="0" label="Подключать Fancybox" description="Для работы всплывающих окон Fancybox должен быть подключен на странице. Если вы подключаете его через шаблон или другое расширение поставьте здесь НЕТ" class="btn-group btn-group-yesno">
 				<option value="1">JYES</option>
 				<option value="0">JNO</option>
 			</field>

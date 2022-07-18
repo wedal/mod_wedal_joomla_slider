@@ -22,11 +22,11 @@ $(document).ready(function() {
             if (slider.find('.slick-track').length) {
                 slider.find('.slick-track').empty();
                 $.each(slides, function(key, slide) {
-                    slider.find('.slider').slick('slickAdd','<div class="slide">' + slide + '</div>');
+                    slider.find('.slider').slick('slickAdd', slide);
                 });
             } else {
                 $.each(slides, function(key, slide) {
-                    slider.find('.slider').empty().append('<div class="slide">' + slide + '</div>');
+                    slider.find('.slider').empty().append(slide);
                 });
             }
         });
