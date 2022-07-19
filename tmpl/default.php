@@ -1,4 +1,7 @@
-<?php defined('_JEXEC') or die('Restricted access'); ?>
+<?php defined('_JEXEC') or die('Restricted access');
+
+use Joomla\CMS\Language\Text;
+?>
 
 <div id="WedalJoomlaSlider<?php echo $module->id ?>" class="wedaljoomlaslider <?php echo $class_options ?> slider-wr  <?php echo $moduleclass_sfx ?>" <?php echo $params->get('data-params'); ?>>
 
@@ -33,7 +36,7 @@
 	</div>
 
 	<?php if ($readmore && (count($slides) > $readmore)) { ?>
-		<div class="readmore-link" data-alttitle="Свернуть">Смотреть все</div>
+		<div class="readmore-link" data-alttitle="<?php echo Text::_('MOD_WEDAL_JOOMLA_SLIDER_SEE_ALL_F') ?>"><?php echo Text::_('MOD_WEDAL_JOOMLA_SLIDER_READMORE_F') ?></div>
 	<?php } ?>
 
 	<?php if ($params->get('show_text') == 'after' || $params->get('show_text') == 'both') { ?>
@@ -69,5 +72,4 @@ if ($params->get('enable')) {
 
 	$wa->addInlineScript($js);
 }
-
 ?>

@@ -5,9 +5,12 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 
 JLoader::register('ModWedalJoomlaSliderHelper', __DIR__ . '/helper.php');
-$jinput = Factory::getApplication()->input;
-$document = Factory::getApplication()->getDocument();
+$app = Factory::getApplication();
+$jinput = $app->input;
+$document = $app->getDocument();
 $wa = $document->getWebAssetManager();
+
+$app->getLanguage()->load('mod_wedal_joomla_slider');
 
 if($params->get('enable_jquery')) {
     $wa->useScript('jquery');

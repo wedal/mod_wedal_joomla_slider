@@ -42,7 +42,6 @@
 						<div class="yb"></div>
 					</div>';
 
-					//echo '<iframe src="https://www.youtube.com/embed/'.$slide->youtube.'?controls=0&showinfo=0&modestbranding=0" frameborder="0" allow="accelerometer; encrypted-media; gyroscope" allowfullscreen></iframe>';
 					if ($slide->slide_title || $slide->slide_desc) {
 						echo '<div class="slide-info">';
 							if ($slide->slide_title) {
@@ -57,7 +56,6 @@
 				break;
 
 			default:
-				echo 'Не выбрано поведение слайда при клике. Проверьте настройки.';
 				break;
 		} ?>
 	</div>

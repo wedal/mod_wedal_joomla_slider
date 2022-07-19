@@ -59,7 +59,6 @@ if ($params->get('enable')) {
 				break;
 
 			default:
-				echo 'Не выбрано поведение слайда при клике. Проверьте настройки.';
 				break;
 		} ?>
 	</div>

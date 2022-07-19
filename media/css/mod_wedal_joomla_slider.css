@@ -32,6 +32,12 @@
 .wedaljoomlaslider .slide .yb, .slide .yb::before { position: absolute; top: 50%; left: 50%; transform: translate3d(-50%,-50%,0); }
 .wedaljoomlaslider .slide .popup {display: none;}
 
+.wedaljoomlaslider.disabled .slide.hide {display: none;}
+.wedaljoomlaslider.disabled .slider.open .slide.hide {display: block;}
+.wedaljoomlaslider.disabled .readmore-link {cursor: pointer; border-bottom: 1px solid #CCC; display: flex; justify-content: flex-end;}
+.wedaljoomlaslider.disabled .slider {display: flex; flex-wrap: wrap; margin: -15px;}
+.wedaljoomlaslider.disabled .slider .slide {padding: 15px;}
+
 /* Оформление */
 
 /*Вкладки */
