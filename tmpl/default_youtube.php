@@ -37,7 +37,7 @@
 
 			// Всплывающее окно
 			case 'modal':
-				echo '<a data-fancybox href="https://www.youtube.com/embed/'.$slide->youtube.'">';
+				echo '<a data-fancybox="images'. $module->id .'" href="https://www.youtube.com/embed/'.$slide->youtube.'">';
 					echo '<div class="youtube_bgr" style="background-image: url(https://i.ytimg.com/vi/'.$slide->youtube.'/hqdefault.jpg);">
 						<div class="yb"></div>
 					</div>';

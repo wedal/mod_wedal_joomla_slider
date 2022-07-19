@@ -19,6 +19,7 @@
 
 	<media destination="mod_wedal_joomla_slider" folder="media">
         <folder>js</folder>
+		<folder>css</folder>
 	</media>
 
 	<languages>

@@ -39,7 +39,7 @@
 
 			//Всплывающее окно
 			case 'modal':
-				echo '<a class="slider-content-wr" data-fancybox data-src="#popup-'.$key.'" data-fancybox="images" href="javascript:;">';
+				echo '<a class="slider-content-wr" data-src="#popup-'.$key.'" data-fancybox="images'. $module->id .'" href="javascript:;">';
 					echo '<div class="slider-content">'.$slide->editor.'</div>';
 
 					if ($slide->slide_title || $slide->slide_desc) {

@@ -43,7 +43,7 @@ if ($params->get('enable')) {
 
 			// Всплывающее окно
 			case 'modal':
-				echo '<a data-fancybox="images" href="'.$slide->image.'">';
+				echo '<a data-fancybox="images'. $module->id .'" href="'.$slide->image.'">';
 					echo '<img '.$src.'="/'.$slide->image.'" alt="'.$slide->slide_title.'">';
 					if ($slide->slide_title || $slide->slide_desc) {
 						echo '<div class="slide-info">';
