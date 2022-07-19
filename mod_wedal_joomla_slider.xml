@@ -158,7 +158,6 @@
 					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
 					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
 					rows="3"
-					validate="CssIdentifier"
 			/>
 
 			<field name="data-params" type="text" default="" label="MOD_WEDAL_JOOMLA_SLIDER_DATA_PARAMS" description="MOD_WEDAL_JOOMLA_SLIDER_DATA_PARAMS_DESC" filter="raw"/>

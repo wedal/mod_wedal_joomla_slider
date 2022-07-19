@@ -4,16 +4,19 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 
+$j_version = substr(JVERSION, 0,1);
+
 JLoader::register('ModWedalJoomlaSliderHelper', __DIR__ . '/helper.php');
 $app = Factory::getApplication();
 $jinput = $app->input;
 $document = $app->getDocument();
-$wa = $document->getWebAssetManager();
 
-$app->getLanguage()->load('mod_wedal_joomla_slider');
+if ($j_version == 4) {
+    $wa = $document->getWebAssetManager();
+}
 
 if($params->get('enable_jquery')) {
-    $wa->useScript('jquery');
+    HTMLHelper::_('jquery.framework');
 }
 
 if($params->get('enable_css')) {

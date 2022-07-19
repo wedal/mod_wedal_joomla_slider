@@ -84,6 +84,10 @@ if ($params->get('enable')) {
     $js .= "});
 	});";
 
-    $wa->addInlineScript($js);
+    if ($j_version == 4) {
+        $wa->addInlineScript($js);
+    } else {
+        $document->addScriptDeclaration($js);
+    }
 }
 ?>
