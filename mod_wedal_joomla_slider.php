@@ -3,6 +3,7 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
 
 $j_version = substr(JVERSION, 0,1);
 
@@ -39,6 +40,11 @@ HTMLHelper::_('script','mod_wedal_joomla_slider/mod_wedal_joomla_slider.js',	['r
 $itemid = $jinput->get('Itemid', null, 'int');
 $slides = ModWedalJoomlaSliderHelper::getSlides($params);
 
+if (!$slides) {
+    echo Text::_('MOD_WEDAL_JOOMLA_SLIDER_NOSLIDES');
+    return false;
+}
+
 if ($params->get('enable')) {
 	$options[] = 'enabled';
 } else {
@@ -56,6 +62,8 @@ $class_options = implode(' ', $options);
 
 if(!$params->get('enable') && $params->get('readmore')) {
     $readmore = $params->get('readmore_slides');
+} else {
+    $readmore = null;
 }
 
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'), ENT_COMPAT, 'UTF-8');

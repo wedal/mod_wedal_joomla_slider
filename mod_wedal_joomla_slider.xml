@@ -68,10 +68,10 @@
 			<field name="slick_params" type="textarea" default="" showon="enable:1" label="MOD_WEDAL_JOOMLA_SLIDER_SLICK_PARAMS" description="MOD_WEDAL_JOOMLA_SLIDER_SLICK_PARAMS_DESC" rows="5" cols="5" filter="safehtml"/>
 
 			<field name="show_text" type="radio" default="none" label="MOD_WEDAL_JOOMLA_SLIDER_SHOW_TEXT" description="MOD_WEDAL_JOOMLA_SLIDER_SHOW_TEXT_DESC" class="btn-group btn-group-yesno">
-				<option value="none">Нет</option>
-				<option value="before">Перед</option>
-				<option value="after">После</option>
-				<option value="both">Перед и после</option>
+				<option value="none">JNO</option>
+				<option value="before">MOD_WEDAL_JOOMLA_SLIDER_BEFORE</option>
+				<option value="after">MOD_WEDAL_JOOMLA_SLIDER_AFTER</option>
+				<option value="both">MOD_WEDAL_JOOMLA_SLIDER_BEFORE_AND_AFTER</option>
 			</field>
 
 			<field name="before_text" showon="show_text:before[OR]show_text:both" type="editor" label="MOD_WEDAL_JOOMLA_SLIDER_BEFORE_TEXT" description="MOD_WEDAL_JOOMLA_SLIDER_BEFORE_TEXT_DESC" filter="safehtml"/>
@@ -85,8 +85,8 @@
 		<fieldset name="slider_params" label="MOD_WEDAL_JOOMLA_SLIDER_SLIDER_PARAMS">
 			<field name="lazy_load" showon="enable:1" type="radio" default="progressive" label="MOD_WEDAL_JOOMLA_SLIDER_LAZYLOAD" description="MOD_WEDAL_JOOMLA_SLIDER_LAZYLOAD_DESC" class="btn-group btn-group-yesno">
 				<option value="0">JNO</option>
-				<option value="ondemand">По запросу</option>
-				<option value="progressive">Прогрессивный</option>
+				<option value="ondemand">MOD_WEDAL_JOOMLA_SLIDER_ONDEMAND</option>
+				<option value="progressive">MOD_WEDAL_JOOMLA_SLIDER_PROGRESSIVE</option>
 			</field>
 
 			<field name="center_mode" showon="enable:1" type="radio" default="0" label="MOD_WEDAL_JOOMLA_SLIDER_CENTER_MODE" description="MOD_WEDAL_JOOMLA_SLIDER_CENTER_MODE_DESC" class="btn-group btn-group-yesno">

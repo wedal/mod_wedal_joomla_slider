@@ -24,6 +24,10 @@ class ModWedalJoomlaSliderHelper
 			$slides = $params->get('list_templates_tabs');
 			$slides = array_values(get_object_vars($slides));
 
+			if (!$slides) {
+			    return false;
+            }
+
 			$tags_ids = array();
 			foreach ($slides as $slide) {
 				$tags_ids = array_merge($tags_ids, $slide->tags);
@@ -42,6 +46,11 @@ class ModWedalJoomlaSliderHelper
 			$slides = $slides_tabs;
 		} else {
 			$slides = $params->get('list_templates');
+
+            if (!$slides) {
+                return false;
+            }
+
 			$slides = array_values(get_object_vars($slides));
 		}
 

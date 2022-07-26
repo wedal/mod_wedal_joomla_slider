@@ -2,25 +2,25 @@
 
 <form>
 	<fieldset hidden="true" name="list_templates_modal" repeat="true">
-		<field name="source_type" type="radio" default="1" label="Источник данных" description="Выберите источник данных для слайда" required="true" class="btn-group">
-			<option value="image">Изображение</option>
-			<option value="youtube">Видео Youtube</option>
-			<option value="editor">HTML-код</option>
+		<field name="source_type" type="radio" default="1" label="MOD_WEDAL_JOOMLA_SLIDER_SLIDE_SOURCE" description="MOD_WEDAL_JOOMLA_SLIDER_SLIDE_SOURCE_DESC" required="true" class="btn-group">
+			<option value="image">MOD_WEDAL_JOOMLA_SLIDER_IMAGE</option>
+			<option value="youtube">MOD_WEDAL_JOOMLA_SLIDER_YOUTUBE</option>
+			<option value="editor">MOD_WEDAL_JOOMLA_SLIDER_HTML</option>
 		</field>
-		<field name="image" showon="source_type:image" type="media" label="Изображение" description="Выберите изображение для слайда" directory=""/>
-		<field name="youtube" showon="source_type:youtube" type="text" default="" label="Видео" description="Введите код видео с Youtube. Внимание! Код вводится без доменного имени." filter="raw"/>
-		<field name="editor" showon="source_type:editor" type="editor" label="Введите содержимое слайда" description="Здесь может быть любой html-код. Полезно использовать для слайдера псевдоотзывов и других сложных блоков" rows="5" filter="safehtml"/>
+		<field name="image" showon="source_type:image" type="media" label="MOD_WEDAL_JOOMLA_SLIDER_IMAGE" description="MOD_WEDAL_JOOMLA_SLIDER_IMAGE_DESC" directory=""/>
+		<field name="youtube" showon="source_type:youtube" type="text" default="" label="MOD_WEDAL_JOOMLA_SLIDER_YOUTUBE" description="MOD_WEDAL_JOOMLA_SLIDER_YOUTUBE_DESC" filter="raw"/>
+		<field name="editor" showon="source_type:editor" type="editor" label="MOD_WEDAL_JOOMLA_SLIDER_HTML" description="MOD_WEDAL_JOOMLA_SLIDER_HTML_DESC" rows="5" filter="safehtml"/>
 
 		<field name="slide_title" type="text" default="" label="MOD_WEDAL_JOOMLA_SLIDER_HEADER" description="MOD_WEDAL_JOOMLA_SLIDER_HEADER_DESC" filter="raw"/>
 		<field name="slide_desc" type="textarea" default="" label="MOD_WEDAL_JOOMLA_SLIDER_TEXT" description="MOD_WEDAL_JOOMLA_SLIDER_TEXT_DESC" rows="1" cols="5" filter="safehtml"/>
-		<field name="behavior" type="radio" default="1" label="Действие при клике" description="Выберите действие, которое произойдет ри клике по слайду" requied="true" class="btn-group" required="true">
-			<option value="none">Нет</option>
-			<option value="golink">Переход по ссылке</option>
-			<option value="modal">Открытие во всплывающем окне</option>
+		<field name="behavior" type="radio" default="1" label="MOD_WEDAL_JOOMLA_SLIDER_CLICK_EVENT" description="MOD_WEDAL_JOOMLA_SLIDER_CLICK_EVENT_DESC" requied="true" class="btn-group" required="true">
+			<option value="none">JNO</option>
+			<option value="golink">MOD_WEDAL_JOOMLA_SLIDER_CLICK_LINK</option>
+			<option value="modal">MOD_WEDAL_JOOMLA_SLIDER_CLICK_MODAL</option>
 		</field>
-		<field name="slide_link" showon="behavior:golink" type="text" default="" label="Ссылка для перехода" description="Введите ссылку для перехода" filter="raw"/>
-		<field name="readmore_editor" showon="source_type:editor[AND]behavior:modal" type="editor" label="Содержимое всплывающего окна" description="Здесь может быть любой html-код." rows="5" filter="safehtml"/>
+		<field name="slide_link" showon="behavior:golink" type="text" default="" label="MOD_WEDAL_JOOMLA_SLIDER_CLICK_LINK_HREF" description="MOD_WEDAL_JOOMLA_SLIDER_CLICK_LINK_HREF_DESC" filter="raw"/>
+		<field name="readmore_editor" showon="source_type:editor[AND]behavior:modal" type="editor" label="MOD_WEDAL_JOOMLA_SLIDER_CLICK_MODAL_CONTENT" description="MOD_WEDAL_JOOMLA_SLIDER_CLICK_MODAL_CONTENT_DESC" rows="5" filter="safehtml"/>
 
-		<field name="tags" type="tag" label="JTAG" description="Выберите теги для группировки слайдов" mode="nested" multiple="true" required="true" />
+		<field name="tags" type="tag" label="JTAG" description="MOD_WEDAL_JOOMLA_SLIDER_TAG_DESC" mode="nested" multiple="true" required="true" />
 	</fieldset>
 </form>

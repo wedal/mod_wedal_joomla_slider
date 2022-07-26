@@ -29,7 +29,6 @@ use Joomla\CMS\Language\Text;
                     break;
 
                 default:
-                    echo 'Не выбран источник контента для слайда';
                     break;
             } ?>
 		<?php } ?>
