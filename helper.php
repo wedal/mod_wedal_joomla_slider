@@ -4,6 +4,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\Response\JsonResponse;
+use Joomla\Utilities\ArrayHelper;
 
 /**
  * Helper for mod_wedal_joomla_slider
@@ -107,4 +108,28 @@ class ModWedalJoomlaSliderHelper
 
 		return new JsonResponse($slides_ajax);
 	}
+
+    //Функция из тегхелпера, в которой имена тегов возвращаются в том порядке, в котором переданы ID, а не отсортированными по имени (зачем это в ядре?)
+    public static function getTagNames($tagIds)
+    {
+        $tagNames = array();
+
+        if (\is_array($tagIds) && \count($tagIds) > 0)
+        {
+            $tagIds = ArrayHelper::toInteger($tagIds);
+
+            $db = Factory::getDbo();
+            $query = $db->getQuery(true)
+                ->select(array($db->quoteName('id'), $db->quoteName('title')))
+                ->from($db->quoteName('#__tags'))
+                ->where($db->quoteName('id') .' IN ('. implode(',', $tagIds) .')')
+                //->whereIn($db->quoteName('id'), $tagIds)
+                ->order($db->quoteName('title'));
+
+            $db->setQuery($query);
+            $tagNames = $db->loadAssocList('id', 'title');
+        }
+
+        return $tagNames;
+    }
 }

@@ -1,16 +1,4 @@
-<?php
-defined('_JEXEC') or die('Restricted access');
-
-use Joomla\CMS\Helper\TagsHelper;
-
-$th = new TagsHelper();
-$tags_ids = array_keys($slides);
-$tagnames = $th->getTagNames($tags_ids);
-
-if (!count($tagnames)) {
-	return;
-}
-?>
+<?php defined('_JEXEC') or die('Restricted access'); ?>
 
 <div id="WedalJoomlaSlider<?php echo $module->id ?>" data-id="<?php echo $module->id ?>" data-itemid="<?php echo $itemid ?>" class="wedaljoomlaslider <?php echo ($params->get('enable')) ? 'enabled' : 'disabled' ?> slider-wr tabs <?php echo $moduleclass_sfx ?>" <?php echo $params->get('data-params'); ?>>
 
@@ -23,7 +11,7 @@ if (!count($tagnames)) {
 	<div class="tabs">
 		<ul class="tabs-titles">
 		<?php foreach ($tagnames as $key => $tagname) { ?>
-			<li data-tagid="<?php echo $tags_ids[$key] ?>" <?php echo ($key == 0) ? 'class="active"' : '' ?>>
+			<li data-tagid="<?php echo $key ?>" <?php echo ($key == $current_tag_id) ? 'class="active"' : '' ?>>
 				<span><?php echo $tagname ?></span>
 			</li>
 		<?php } ?>
@@ -31,7 +19,7 @@ if (!count($tagnames)) {
 	</div>
 
 	<div class="slider">
-		<?php foreach(current($slides) as $key => $slide) { ?>
+		<?php foreach($slides[$current_tag_id] as $key => $slide) { ?>
             <?php switch ($slide->source_type) {
                 // Шаблоны каждого источника контента хранятся в отдельных подмакетах
                 case 'image':

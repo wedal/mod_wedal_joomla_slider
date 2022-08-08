@@ -6,7 +6,7 @@ if ($params->get('enable')) {
 	$src = 'src';
 }
 ?>
-<div class="slide <?php echo ($readmore && $key > ($readmore-1)) ? 'hide' : '' ?>">
+<div class="slide <?php echo (isset($readmore) && $key > ($readmore-1)) ? 'hide' : '' ?>">
 	<div class="slide-wr">
 		<?php switch ($slide->behavior) {
 			// Без действия

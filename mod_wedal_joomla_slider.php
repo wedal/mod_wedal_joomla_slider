@@ -71,6 +71,20 @@ $layout = $params->get('layout', 'default');
 
 if ($params->get('show_tabs')) {
     $layout .= '_tabs';
+
+    $tags_ids = array_keys($slides);
+    $tagnames = ModWedalJoomlaSliderHelper::getTagNames($tags_ids);
+    $current_tag_id = array_key_first($tagnames);
+
+    if (!count($tagnames)) {
+        return;
+    }
+
+    if ($params->get('enable')) {
+        $enable = 'enabled';
+    } else {
+        $enable = 'disabled';
+    }
 }
 
 require JModuleHelper::getLayoutPath('mod_wedal_joomla_slider', $layout);
