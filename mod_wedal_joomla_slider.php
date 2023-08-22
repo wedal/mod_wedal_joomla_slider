@@ -66,7 +66,7 @@ if(!$params->get('enable') && $params->get('readmore')) {
     $readmore = null;
 }
 
-$moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'), ENT_COMPAT, 'UTF-8');
+$moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx') ?? '', ENT_COMPAT, 'UTF-8');
 $layout = $params->get('layout', 'default');
 
 if ($params->get('show_tabs')) {
