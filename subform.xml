@@ -6,19 +6,22 @@
 			<option value="image">MOD_WEDAL_JOOMLA_SLIDER_IMAGE</option>
 			<option value="youtube">MOD_WEDAL_JOOMLA_SLIDER_YOUTUBE</option>
 			<option value="editor">MOD_WEDAL_JOOMLA_SLIDER_HTML</option>
+			<option value="custom_id">MOD_WEDAL_JOOMLA_SLIDER_CUSTOM_ID</option>
+			<option value="none">MOD_WEDAL_JOOMLA_SLIDER_NONE_OPTION</option>
 		</field>
 		<field name="image" showon="source_type:image" type="media" label="MOD_WEDAL_JOOMLA_SLIDER_IMAGE" description="MOD_WEDAL_JOOMLA_SLIDER_IMAGE_DESC" directory=""/>
-		<field name="youtube" showon="source_type:youtube" type="text" default="" label="MOD_WEDAL_JOOMLA_SLIDER_YOUTUBE" description="MOD_WEDAL_JOOMLA_SLIDER_YOUTUBE_DESC" filter="raw"/>
+		<field name="youtube" showon="source_type:youtube" type="text" default="" label="MOD_WEDAL_JOOMLA_SLIDER_YOUTUBE" description="MOD_WEDAL_JOOMLA_SLIDER_YOUTUBE_DESC" filter="safehtml"/>
 		<field name="editor" showon="source_type:editor" type="editor" label="MOD_WEDAL_JOOMLA_SLIDER_HTML" description="MOD_WEDAL_JOOMLA_SLIDER_HTML_DESC" rows="5" filter="safehtml"/>
+		<field name="custom_id" showon="source_type:custom_id" type="text" default="" label="MOD_WEDAL_JOOMLA_SLIDER_CUSTOM_ID_TITLE" description="MOD_WEDAL_JOOMLA_SLIDER_CUSTOM_ID_DESC" filter="text"/>
 
-		<field name="slide_title" type="text" default="" label="MOD_WEDAL_JOOMLA_SLIDER_HEADER" description="MOD_WEDAL_JOOMLA_SLIDER_HEADER_DESC" filter="raw"/>
+		<field name="slide_title" type="text" default="" label="MOD_WEDAL_JOOMLA_SLIDER_HEADER" description="MOD_WEDAL_JOOMLA_SLIDER_HEADER_DESC" filter="safehtml"/>
 		<field name="slide_desc" type="textarea" default="" label="MOD_WEDAL_JOOMLA_SLIDER_TEXT" description="MOD_WEDAL_JOOMLA_SLIDER_TEXT_DESC" rows="1" cols="5" filter="safehtml"/>
 		<field name="behavior" type="radio" default="1" label="MOD_WEDAL_JOOMLA_SLIDER_CLICK_EVENT" description="MOD_WEDAL_JOOMLA_SLIDER_CLICK_EVENT_DESC" requied="true" class="btn-group" required="true">
 			<option value="none">JNO</option>
 			<option value="golink">MOD_WEDAL_JOOMLA_SLIDER_CLICK_LINK</option>
 			<option value="modal">MOD_WEDAL_JOOMLA_SLIDER_CLICK_MODAL</option>
 		</field>
-		<field name="slide_link" showon="behavior:golink" type="text" default="" label="MOD_WEDAL_JOOMLA_SLIDER_CLICK_LINK_HREF" description="MOD_WEDAL_JOOMLA_SLIDER_CLICK_LINK_HREF_DESC" filter="raw"/>
+		<field name="slide_link" showon="behavior:golink" type="text" default="" label="MOD_WEDAL_JOOMLA_SLIDER_CLICK_LINK_HREF" description="MOD_WEDAL_JOOMLA_SLIDER_CLICK_LINK_HREF_DESC" filter="safehtml"/>
 		<field name="readmore_editor" showon="source_type:editor[AND]behavior:modal" type="editor" label="MOD_WEDAL_JOOMLA_SLIDER_CLICK_MODAL_CONTENT" description="MOD_WEDAL_JOOMLA_SLIDER_CLICK_MODAL_CONTENT_DESC" rows="5" filter="safehtml"/>
 
 	</fieldset>

@@ -45,6 +45,13 @@ if (!$slides) {
     return false;
 }
 
+$custom_ids = array();
+foreach ($slides as $key => $slide) {
+    if ($slide->source_type == 'custom_id' && !empty($slide->custom_id)){
+        $custom_ids[$key] = $slide->custom_id;
+    }
+}
+
 if ($params->get('enable')) {
 	$options[] = 'enabled';
 } else {

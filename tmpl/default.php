@@ -1,6 +1,7 @@
 <?php defined('_JEXEC') or die('Restricted access');
 
 use Joomla\CMS\Language\Text;
+
 ?>
 
 <div id="WedalJoomlaSlider<?php echo $module->id ?>" class="wedaljoomlaslider <?php echo $class_options ?> slider-wr  <?php echo $moduleclass_sfx ?>" <?php echo $params->get('data-params'); ?>>
@@ -26,6 +27,14 @@ use Joomla\CMS\Language\Text;
 
                 case 'editor':
                     require JModuleHelper::getLayoutPath('mod_wedal_joomla_slider', $params->get('layout', 'default') . '_editor');
+                    break;
+
+                case 'custom_id':
+                    require JModuleHelper::getLayoutPath('mod_wedal_joomla_slider', $params->get('layout', 'default') . '_customid');
+                    break;
+
+                case 'none':
+                    require JModuleHelper::getLayoutPath('mod_wedal_joomla_slider', $params->get('layout', 'default') . '_none');
                     break;
 
                 default:
