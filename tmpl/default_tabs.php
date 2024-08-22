@@ -34,6 +34,14 @@
                     require JModuleHelper::getLayoutPath('mod_wedal_joomla_slider', $params->get('layout', 'default') . '_editor');
                     break;
 
+                case 'custom_id':
+                    require JModuleHelper::getLayoutPath('mod_wedal_joomla_slider', $params->get('layout', 'default') . '_customid');
+                    break;
+
+                case 'none':
+                    require JModuleHelper::getLayoutPath('mod_wedal_joomla_slider', $params->get('layout', 'default') . '_none');
+                    break;
+
                 default:
                     break;
             } ?>
