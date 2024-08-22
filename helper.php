@@ -100,6 +100,20 @@ class ModWedalJoomlaSliderHelper
 					ob_end_clean();
 					break;
 
+                case 'custom_id':
+                    ob_start();
+                    htmlspecialchars(require JModuleHelper::getLayoutPath('mod_wedal_joomla_slider', $params->get('layout', 'default') . '_customid'), ENT_QUOTES);
+                    $slides_ajax[$key] = ob_get_contents();
+                    ob_end_clean();
+                    break;
+
+                case 'none':
+                    ob_start();
+                    htmlspecialchars(require JModuleHelper::getLayoutPath('mod_wedal_joomla_slider', $params->get('layout', 'default') . '_none'), ENT_QUOTES);
+                    $slides_ajax[$key] = ob_get_contents();
+                    ob_end_clean();
+                    break;
+
 				default:
 					$slides_ajax[$key] = 'Не выбран источник контента для слайда';
 					break;
