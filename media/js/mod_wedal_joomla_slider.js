@@ -25,8 +25,9 @@ $(document).ready(function() {
                     slider.find('.slider').slick('slickAdd', slide);
                 });
             } else {
+                slider.find('.slider').empty();
                 $.each(slides, function(key, slide) {
-                    slider.find('.slider').empty().append(slide);
+                    slider.find('.slider').append(slide);
                 });
             }
         });
