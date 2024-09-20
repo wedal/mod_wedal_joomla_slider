@@ -47,7 +47,7 @@ if (!$slides) {
 
 $custom_ids = array();
 foreach ($slides as $key => $slide) {
-    if ($slide->source_type == 'custom_id' && !empty($slide->custom_id)){
+    if (!empty($slide->source_type) && !is_array($slide->source_type) && $slide->source_type == 'custom_id' && !empty($slide->custom_id)){
         $custom_ids[$key] = $slide->custom_id;
     }
 }
